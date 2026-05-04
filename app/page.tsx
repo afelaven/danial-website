@@ -7,7 +7,7 @@ import { SpotlightBg } from "@/components/portfolio/spotlight-bg"
 
 export default function Page() {
   return (
-    <div className="relative mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+    <div className="relative mx-auto min-h-screen max-w-screen-xl px-6 pb-12 pt-24 font-sans md:px-12 md:pb-20 md:pt-28 lg:px-24 lg:py-0">
       <SpotlightBg />
       <a
         href="#content"
@@ -19,7 +19,7 @@ export default function Page() {
       <div className="lg:flex lg:justify-between lg:gap-4">
         <Sidebar />
 
-        <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
+        <main id="content" className="pt-12 lg:w-1/2 lg:py-24 lg:pt-24">
           <About />
           <Experience />
           <Projects />

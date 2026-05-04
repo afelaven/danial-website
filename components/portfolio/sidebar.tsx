@@ -40,7 +40,9 @@ export function Sidebar() {
     e.preventDefault()
     const target = document.getElementById(id)
     if (!target) return
-    const top = target.getBoundingClientRect().top + window.scrollY - 24
+    const isMobile = window.matchMedia("(max-width: 1023px)").matches
+    const offset = isMobile ? 72 : 24
+    const top = target.getBoundingClientRect().top + window.scrollY - offset
     window.scrollTo({ top, behavior: "smooth" })
     history.replaceState(null, "", `#${id}`)
     setActive(id)
@@ -48,6 +50,41 @@ export function Sidebar() {
 
   return (
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+      <nav
+        aria-label="In-page navigation"
+        className="fixed inset-x-0 top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md lg:hidden"
+      >
+        <ul className="mx-auto flex max-w-screen-xl items-center justify-around px-4">
+          {NAV.map((item) => {
+            const isActive = active === item.id
+            return (
+              <li key={item.id} className="flex-1">
+                <a
+                  href={`#${item.id}`}
+                  onClick={(e) => handleNavClick(e, item.id)}
+                  className={cn(
+                    "relative block py-4 text-center font-mono text-xs font-bold uppercase tracking-widest transition-colors",
+                    isActive
+                      ? "text-foreground"
+                      : "text-muted-foreground hover:text-foreground",
+                  )}
+                  aria-current={isActive ? "page" : undefined}
+                >
+                  {item.label}
+                  <span
+                    className={cn(
+                      "absolute inset-x-4 bottom-0 h-px transition-colors",
+                      isActive ? "bg-foreground" : "bg-transparent",
+                    )}
+                    aria-hidden="true"
+                  />
+                </a>
+              </li>
+            )
+          })}
+        </ul>
+      </nav>
+
       <div>
         <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
           Danial Haikal
