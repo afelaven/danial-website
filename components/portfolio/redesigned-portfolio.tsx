@@ -2,7 +2,6 @@
 
 import type { CSSProperties } from "react"
 import { useEffect, useRef, useState } from "react"
-import Image from "next/image"
 import {
   ArrowUpRight,
   Code2,
@@ -111,9 +110,10 @@ const PROJECTS = [
     description:
       "Production banking mobile app work: feature delivery, API integration, regression fixes, and release support across iOS and Android.",
     stack: ["Flutter", "Dart", "REST"],
-    accent: "#22d3ee",
+    accent: "#005eb8",
     label: "UOB",
-    image: "/project-helix.jpg",
+    logo: "/logo-uob.svg",
+    logoFit: "contain" as const,
   },
   {
     domain: "Banking",
@@ -121,9 +121,10 @@ const PROJECTS = [
     description:
       "Mobile banking application contributions across customer flows, sprint releases, QA support, and production issue triage.",
     stack: ["Flutter", "BLoC", "REST"],
-    accent: "#4ade80",
+    accent: "#e3192e",
     label: "AFFIN",
-    image: "/project-lattice.jpg",
+    logo: "/logo-affin.svg",
+    logoFit: "contain" as const,
   },
   {
     domain: "Fintech",
@@ -131,9 +132,10 @@ const PROJECTS = [
     description:
       "Fintech mobile experience covering core money flows, third-party service integration, JSON handling, and bug triage.",
     stack: ["Flutter", "Dart", "JSON"],
-    accent: "#fbbf24",
+    accent: "#e60013",
     label: "$X",
-    image: "/project-edge.jpg",
+    logo: "/logo-moneyx.png",
+    logoFit: "cover" as const,
   },
   {
     domain: "Healthcare",
@@ -143,7 +145,8 @@ const PROJECTS = [
     stack: ["Flutter", "Provider", "REST"],
     accent: "#f472b6",
     label: "SLK",
-    image: "/project-beacon.jpg",
+    logo: "/logo-selangkah.jpg",
+    logoFit: "cover" as const,
   },
   {
     domain: "Enterprise",
@@ -153,7 +156,8 @@ const PROJECTS = [
     stack: ["Flutter", "React", "Backend"],
     accent: "#a78bfa",
     label: "N7",
-    image: "/project-lattice.jpg",
+    logo: "/logo-net7.jpg",
+    logoFit: "cover" as const,
   },
 ]
 
@@ -195,7 +199,7 @@ export function RedesignedPortfolio() {
 
       <SiteNav activeSection={activeSection} />
 
-      <main id="top" className="relative z-10 mx-auto max-w-6xl px-5 pt-20 sm:px-8 lg:px-10">
+      <main id="top" className="relative z-10 mx-auto max-w-6xl px-5 pt-28 sm:px-8 sm:pt-20 lg:px-10">
         <section className="flex min-h-[86svh] flex-col justify-center py-16 lg:py-20">
           <div>
             <p className="reveal mb-6 font-mono text-sm text-accent">$ echo &quot;Hello, world.&quot;</p>
@@ -460,44 +464,82 @@ export function RedesignedPortfolio() {
 function SiteNav({ activeSection }: { activeSection: string }) {
   return (
     <nav className="fixed inset-x-0 top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-xl" aria-label="Primary navigation">
-      <div className="mx-auto flex h-16 max-w-6xl items-center gap-4 px-5 sm:px-8 lg:px-10">
-        <a
-          href="#top"
-          onClick={(event) => handleAnchorClick(event, "top")}
-          className="flex shrink-0 items-center gap-2 font-mono text-sm text-foreground"
-        >
-          <span className="text-accent">&lt;/&gt;</span>
-          <span>danial.dev</span>
-        </a>
+      <div className="mx-auto max-w-6xl px-4 sm:px-8 lg:px-10">
+        <div className="flex h-14 items-center gap-3 sm:h-16 sm:gap-4">
+          <a
+            href="#top"
+            onClick={(event) => handleAnchorClick(event, "top")}
+            className="flex shrink-0 items-center gap-2 font-mono text-sm text-foreground"
+          >
+            <span className="text-accent">&lt;/&gt;</span>
+            <span className="hidden sm:inline">danial.dev</span>
+          </a>
 
-        <div className="ml-auto flex min-w-0 items-center gap-2 overflow-x-auto">
-          {NAV.map((item, index) => (
+          <div className="ml-auto hidden items-center gap-2 sm:flex">
+            {NAV.map((item, index) => (
+              <NavLink key={item.id} item={item} index={index} active={activeSection === item.id} />
+            ))}
             <a
-              key={item.id}
-              href={`#${item.id}`}
-              onClick={(event) => handleAnchorClick(event, item.id)}
-              aria-current={activeSection === item.id ? "page" : undefined}
-              className={cn(
-                "shrink-0 rounded-md px-2.5 py-2 font-mono text-xs transition sm:px-3",
-                activeSection === item.id ? "bg-accent/10 text-accent" : "text-muted-foreground hover:text-accent",
-              )}
+              href="/danial-resume.pdf"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="ml-1 grid h-9 w-9 shrink-0 place-items-center rounded-md border border-accent/50 text-accent transition hover:bg-accent/10"
+              aria-label="Open resume"
             >
-              <span className="hidden text-accent sm:inline">{String(index + 1).padStart(2, "0")}.</span>{" "}
-              {item.label}
+              <Download className="h-4 w-4" aria-hidden="true" />
             </a>
-          ))}
+          </div>
+
           <a
             href="/danial-resume.pdf"
             target="_blank"
             rel="noreferrer noopener"
-            className="ml-1 grid h-9 w-9 shrink-0 place-items-center rounded-md border border-accent/50 text-accent transition hover:bg-accent/10"
+            className="ml-auto grid h-9 w-9 shrink-0 place-items-center rounded-md border border-accent/50 text-accent sm:hidden"
             aria-label="Open resume"
           >
             <Download className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
+
+        <div className="-mx-1 flex justify-between gap-1 pb-2 sm:hidden">
+          {NAV.map((item, index) => (
+            <NavLink key={item.id} item={item} index={index} active={activeSection === item.id} compact />
+          ))}
+        </div>
       </div>
     </nav>
+  )
+}
+
+function NavLink({
+  item,
+  index,
+  active,
+  compact = false,
+}: {
+  item: (typeof NAV)[number]
+  index: number
+  active: boolean
+  compact?: boolean
+}) {
+  return (
+    <a
+      href={`#${item.id}`}
+      onClick={(event) => handleAnchorClick(event, item.id)}
+      aria-current={active ? "page" : undefined}
+      className={cn(
+        "shrink-0 rounded-md font-mono transition",
+        compact
+          ? "flex-1 px-1 py-1.5 text-center text-[11px]"
+          : "px-3 py-2 text-xs",
+        active ? "bg-accent/10 text-accent" : "text-muted-foreground hover:text-accent",
+      )}
+    >
+      {!compact && (
+        <span className="text-accent">{String(index + 1).padStart(2, "0")}.</span>
+      )}{" "}
+      {item.label}
+    </a>
   )
 }
 
@@ -638,23 +680,25 @@ function ProjectMockup({ project }: { project: (typeof PROJECTS)[number] }) {
       <div className="phone-frame" aria-hidden="true">
         <div className="phone-notch" />
         <div className="phone-screen">
-          <Image src={project.image} alt="" fill sizes="150px" className="object-cover opacity-40" />
-          <div className="relative z-10">
-            <div className="phone-status">
-              <span>9:41</span>
-              <span>5G</span>
-            </div>
-            <div className="phone-tile">
-              <span className="phone-label">{project.label}</span>
-              <span className="phone-bar strong" />
-              <span className="phone-bar" />
-              <span className="phone-bar short" />
-            </div>
-            <div className="phone-pills">
-              <span />
-              <span />
-              <span />
-            </div>
+          <div className="phone-status">
+            <span>9:41</span>
+            <span>5G</span>
+          </div>
+          <div className="phone-logo-wrap">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.logo}
+              alt={`${project.title} logo`}
+              className={cn(
+                "absolute inset-0 h-full w-full",
+                project.logoFit === "cover" ? "object-cover" : "object-contain p-2",
+              )}
+            />
+          </div>
+          <div className="phone-pills">
+            <span />
+            <span />
+            <span />
           </div>
         </div>
       </div>

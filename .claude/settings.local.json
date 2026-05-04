@@ -14,7 +14,27 @@
       "Bash(pnpm build *)",
       "Bash(rtk tsc *)",
       "Bash(rtk next *)",
-      "Bash(rtk grep *)"
+      "Bash(rtk grep *)",
+      "WebSearch",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "WebFetch(domain:web.selangkah.my)",
+      "WebFetch(domain:www.moneyx.com.my)",
+      "WebFetch(domain:net7.biz)",
+      "Bash(curl -sL 'https://itunes.apple.com/lookup?id=__TRACKED_VAR__')",
+      "Bash(curl -sL 'https://itunes.apple.com/lookup?id=__TRACKED_VAR__&country=MY')",
+      "Bash(curl -sL -o logo-uob.svg \"https://upload.wikimedia.org/wikipedia/commons/e/ef/UOB_Logo.svg\")",
+      "Bash(curl -sL -o logo-affin.svg \"https://upload.wikimedia.org/wikipedia/commons/9/9f/Affin_Bank_logo.svg\")",
+      "Bash(curl -sL -o logo-selangkah.jpg \"https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/4e/ba/09/4eba0923-d274-2a1d-86b8-8a458845533d/AppIcon-0-0-1x_U007emarketing-0-8-0-85-220.png/512x512bb.jpg\")",
+      "Bash(curl -sL -o logo-net7.jpg \"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/58/db/c7/58dbc7e6-209e-e18a-52fc-70d652b94aa8/AppIcon-0-0-1x_U007ephone-0-1-85-220.png/512x512bb.jpg\")",
+      "Bash(curl -sL -o logo-moneyx.jpg \"https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/32/8f/4e/328f4e4a-f7bd-da95-7a8d-464e9d652c1f/AppIcon-0-0-1x_U007emarketing-0-11-0-85-220.png/512x512bb.jpg\")",
+      "Bash(NEXT_TELEMETRY_DISABLED=1 rtk next)",
+      "Bash(timeout 25 npx next dev)",
+      "Bash(rtk npx *)",
+      "Bash(rtk curl *)",
+      "Bash(rtk read *)",
+      "Bash(python3)",
+      "Bash(pkill -f \"next\")",
+      "Bash(rm -rf .next)"
     ]
   }
 }
