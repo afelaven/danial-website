@@ -16,10 +16,10 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Danial Haikal — Senior Software Developer",
+  title: "Danial Haikal - Senior Software Developer",
   description:
-    "Senior Software Developer and Mobile Team Lead building Flutter, Dart, React, banking, healthcare, and enterprise apps.",
-  generator: "v0.app",
+    "Senior Software Developer and Mobile Team Lead building Flutter, Dart, React, banking, healthcare, fintech, and enterprise apps.",
+  generator: "Next.js",
 }
 
 export default function RootLayout({

@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:api.anthropic.com)",
+      "Bash(rtk ls *)",
+      "Read(//private/tmp/**)",
+      "Bash(cp /Users/danialhaikal/.claude/projects/-Users-danialhaikal-Development-danial-website/85d5f5a0-31cd-4643-8077-154c39b987f0/tool-results/webfetch-1777885713871-ncs34e.bin design.gz)",
+      "Bash(gunzip -c design.gz)",
+      "Bash(tar -tf design.tar)",
+      "Bash(mkdir -p /tmp/design-bundle)",
+      "Bash(tar -xf /tmp/design.tar -C /tmp/design-bundle)",
+      "Bash(gunzip -c /tmp/design.gz)",
+      "Bash(rtk find *)",
+      "Bash(pnpm build *)",
+      "Bash(rtk tsc *)",
+      "Bash(rtk next *)",
+      "Bash(rtk grep *)"
+    ]
+  }
+}
