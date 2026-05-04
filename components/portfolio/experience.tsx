@@ -4,47 +4,47 @@ type Job = {
   period: string
   role: string
   company: string
-  url: string
+  location: string
   description: string
   stack: string[]
 }
 
 const JOBS: Job[] = [
   {
-    period: "2023 — Present",
-    role: "Senior Software Engineer · Platform",
-    company: "Northwind Labs",
-    url: "https://example.com",
+    period: "May 2024 — Present",
+    role: "Senior Software Developer",
+    company: "Mandrill Tech Sdn. Bhd.",
+    location: "Mutiara Damansara, Petaling Jaya",
     description:
-      "Lead the platform team building a real-time event pipeline processing 4B+ events daily. Drove a migration from Kafka to Redpanda, cutting infra costs by 38% and p99 latency by half. Mentor four engineers and own the on-call quality bar.",
-    stack: ["Go", "Rust", "Kubernetes", "Redpanda", "Postgres", "Terraform"],
+      "Develop and maintain production features for two banking mobile applications using Flutter and Dart. Contribute across mobile app, web portal, and backend work, owning delivery from requirement clarification through implementation, testing support, bug fixing, and release preparation.",
+    stack: ["Flutter", "Dart", "RESTful APIs", "JSON", "React", "Backend Development"],
   },
   {
-    period: "2020 — 2023",
-    role: "Staff Engineer · Infrastructure",
-    company: "Helios Systems",
-    url: "https://example.com",
+    period: "Jan 2023 — Apr 2024",
+    role: "Assistant Team Lead",
+    company: "HAYAT Technologies Sdn. Bhd.",
+    location: "Mid Valley, Kuala Lumpur",
     description:
-      "Designed the multi-region control plane that became the backbone of the company's SaaS offering. Authored the internal RFC process and led the migration from a Rails monolith to a service-oriented architecture across 12 teams.",
-    stack: ["TypeScript", "Node.js", "gRPC", "AWS", "PostgreSQL", "Redis"],
+      "Supported sprint planning, task coordination, progress tracking, developer support, and stakeholder collaboration. Worked closely with QA, backend teams, project managers, and stakeholders to keep delivery on track.",
+    stack: ["Flutter", "Dart", "Sprint Planning", "Task Coordination", "Jira", "Git"],
   },
   {
-    period: "2018 — 2020",
-    role: "Senior Full-Stack Engineer",
-    company: "Cobalt & Co.",
-    url: "https://example.com",
+    period: "Apr 2021 — Jan 2023",
+    role: "Flutter Developer",
+    company: "HAYAT Technologies Sdn. Bhd.",
+    location: "Mid Valley, Kuala Lumpur",
     description:
-      "Built the core dashboard product from zero to a $30M ARR business. Owned end-to-end delivery from design reviews through production rollouts. Established the company's frontend architecture and component library still in use today.",
-    stack: ["React", "TypeScript", "Next.js", "GraphQL", "Postgres"],
+      "Developed and maintained cross-platform mobile apps using Flutter and Dart, including SELANGKAH, a public healthcare platform used during the COVID-19 pandemic. Built features, integrated RESTful APIs, fixed bugs, and supported App Store and Play Store releases.",
+    stack: ["Flutter", "Dart", "BLoC", "Provider", "App Store", "Play Store"],
   },
   {
-    period: "2015 — 2018",
-    role: "Software Engineer",
-    company: "Meridian Technologies",
-    url: "https://example.com",
+    period: "Sep 2020 — Apr 2021",
+    role: "Mobile App Programmer",
+    company: "ASP Medical Group",
+    location: "Masjid Jamek, Kuala Lumpur",
     description:
-      "Shipped consumer features for a top-100 iOS app with 12M monthly active users. Led the rewrite of the offline sync engine, reducing crash rate by 72% and tripling the average session length on poor network conditions.",
-    stack: ["Swift", "Objective-C", "Python", "Django"],
+      "Developed, tested, and maintained mobile application features for iOS and Android platforms. Integrated RESTful APIs, supported app enhancements and bug fixes, and assisted with issue investigation and production support.",
+    stack: ["iOS", "Android", "RESTful APIs", "Testing Support", "Production Support"],
   },
 ]
 
@@ -64,10 +64,7 @@ export function Experience() {
       <ol className="group/list">
         {JOBS.map((job, idx) => (
           <li key={idx} className="mb-12">
-            <a
-              href={job.url}
-              target="_blank"
-              rel="noreferrer noopener"
+            <article
               className="group relative grid pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
             >
               <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-card/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]" />
@@ -87,15 +84,13 @@ export function Experience() {
                         {job.role} ·{" "}
                         <span className="inline-block">
                           {job.company}
-                          <ArrowUpRight
-                            className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover:-translate-y-1 group-hover:translate-x-1 group-focus-visible:-translate-y-1 group-focus-visible:translate-x-1 motion-reduce:transition-none"
-                            aria-hidden="true"
-                          />
                         </span>
                       </span>
                     </span>
                   </span>
                 </h3>
+
+                <p className="mt-1 font-mono text-xs text-muted-foreground">{job.location}</p>
 
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {job.description}
@@ -111,7 +106,7 @@ export function Experience() {
                   ))}
                 </ul>
               </div>
-            </a>
+            </article>
           </li>
         ))}
       </ol>

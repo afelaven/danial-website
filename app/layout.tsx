@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 export const metadata: Metadata = {
-  title: "Alex Mercer — Senior Software Engineer",
+  title: "Danial Haikal — Senior Software Developer",
   description:
-    "Senior software engineer building reliable, performant systems and thoughtful product experiences.",
+    "Senior Software Developer and Mobile Team Lead building Flutter, Dart, React, banking, healthcare, and enterprise apps.",
   generator: "v0.app",
 }
 

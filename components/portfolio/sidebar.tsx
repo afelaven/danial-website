@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Github, Linkedin, Twitter, Mail, FileText } from "lucide-react"
+import { Mail, FileText, Phone } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 const NAV = [
@@ -50,13 +50,14 @@ export function Sidebar() {
     <header className="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
       <div>
         <h1 className="text-balance text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Alex Mercer
+          Danial Haikal
         </h1>
         <h2 className="mt-3 text-lg font-medium tracking-tight text-foreground sm:text-xl">
-          Senior Software Engineer
+          Senior Software Developer
         </h2>
         <p className="mt-4 max-w-xs text-pretty leading-relaxed text-muted-foreground">
-          I build resilient backend systems and elegant interfaces that scale to millions of users.
+          Mobile team lead building Flutter, Dart, React, and production apps for banking,
+          healthcare, and enterprise teams.
         </p>
 
         {/* Desktop nav */}
@@ -101,48 +102,24 @@ export function Sidebar() {
 
       <ul
         className="mt-12 ml-1 flex items-center gap-5 text-muted-foreground"
-        aria-label="Social media"
+        aria-label="Contact links"
       >
         <li>
           <a
-            href="https://github.com"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="block transition-colors hover:text-foreground"
-            aria-label="GitHub (opens in a new tab)"
-          >
-            <Github className="h-5 w-5" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="block transition-colors hover:text-foreground"
-            aria-label="LinkedIn (opens in a new tab)"
-          >
-            <Linkedin className="h-5 w-5" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://twitter.com"
-            target="_blank"
-            rel="noreferrer noopener"
-            className="block transition-colors hover:text-foreground"
-            aria-label="Twitter (opens in a new tab)"
-          >
-            <Twitter className="h-5 w-5" />
-          </a>
-        </li>
-        <li>
-          <a
-            href="mailto:hello@alexmercer.dev"
+            href="mailto:danhaikalwork@gmail.com"
             className="block transition-colors hover:text-foreground"
             aria-label="Email"
           >
             <Mail className="h-5 w-5" />
+          </a>
+        </li>
+        <li>
+          <a
+            href="tel:+60177565622"
+            className="block transition-colors hover:text-foreground"
+            aria-label="Phone"
+          >
+            <Phone className="h-5 w-5" />
           </a>
         </li>
         <li>

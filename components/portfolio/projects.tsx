@@ -1,61 +1,46 @@
 import Image from "next/image"
-import { ArrowUpRight, Star, GitFork } from "lucide-react"
+import { ArrowUpRight } from "lucide-react"
 
 type Project = {
   title: string
   description: string
-  url: string
   image: string
   imageAlt: string
   stack: string[]
-  stars?: number
-  forks?: number
 }
 
 const PROJECTS: Project[] = [
   {
-    title: "Helix Query Engine",
+    title: "Banking / Fintech Mobile Apps",
     description:
-      "An open-source distributed query engine written in Rust. Powers analytical workloads across petabyte-scale datasets with sub-second query times.",
-    url: "https://example.com",
+      "Production mobile app work across UOB Bank, Affin Bank, and MoneyX, focused on Flutter feature delivery, RESTful integrations, bug fixing, testing support, and release preparation.",
     image: "/project-helix.jpg",
-    imageAlt: "Screenshot of the Helix Query Engine dashboard with terminal output",
-    stack: ["Rust", "Apache Arrow", "DataFusion", "WebAssembly"],
-    stars: 4823,
-    forks: 312,
+    imageAlt: "Dashboard preview representing banking and fintech mobile delivery",
+    stack: ["Flutter", "Dart", "RESTful APIs", "JSON", "App Releases"],
   },
   {
-    title: "Beacon Observability",
+    title: "SELANGKAH",
     description:
-      "Self-hosted observability stack combining metrics, traces, and logs into a single queryable timeline. Used internally by three Fortune 500 companies.",
-    url: "https://example.com",
+      "Public healthcare platform used during the COVID-19 pandemic. Built and maintained cross-platform Flutter features, integrated APIs, fixed bugs, and supported store releases.",
     image: "/project-beacon.jpg",
-    imageAlt: "Beacon dashboard showing real-time service traces and metrics",
-    stack: ["Go", "ClickHouse", "OpenTelemetry", "React"],
-    stars: 1402,
-    forks: 98,
+    imageAlt: "Dashboard preview representing public healthcare app workflows",
+    stack: ["Flutter", "Dart", "BLoC", "Provider", "App Store", "Play Store"],
   },
   {
-    title: "Lattice UI",
+    title: "Net7 Enterprise Platform",
     description:
-      "Headless React component library with a focus on accessibility and composable APIs. Battle-tested in production at scale across multiple SaaS products.",
-    url: "https://example.com",
+      "Enterprise platform work spanning mobile app, web portal, and backend development, supporting end-to-end delivery for project requirements and sprint goals.",
     image: "/project-lattice.jpg",
-    imageAlt: "Component showcase of the Lattice UI library on a dark interface",
-    stack: ["TypeScript", "React", "Radix", "Tailwind"],
-    stars: 2618,
-    forks: 184,
+    imageAlt: "Interface preview representing enterprise platform delivery",
+    stack: ["React", "Backend Development", "Flutter", "Git", "Jira"],
   },
   {
-    title: "Edge Cache Proxy",
+    title: "ASP Medical Mobile Apps",
     description:
-      "Lightweight HTTP caching proxy designed for the edge. Pluggable backends, stale-while-revalidate semantics, and a 200KB binary footprint.",
-    url: "https://example.com",
+      "iOS and Android mobile application feature work for healthcare operations, including API integrations, app enhancements, bug fixes, testing, and production support.",
     image: "/project-edge.jpg",
-    imageAlt: "Architecture diagram of the Edge Cache Proxy with request flow",
-    stack: ["Go", "Redis", "Cloudflare Workers"],
-    stars: 967,
-    forks: 64,
+    imageAlt: "Architecture preview representing healthcare mobile app support",
+    stack: ["iOS", "Android", "RESTful APIs", "Testing Support"],
   },
 ]
 
@@ -75,10 +60,7 @@ export function Projects() {
       <ul className="group/list">
         {PROJECTS.map((project) => (
           <li key={project.title} className="mb-12">
-            <a
-              href={project.url}
-              target="_blank"
-              rel="noreferrer noopener"
+            <article
               className="group relative grid gap-4 pb-1 transition-all sm:grid-cols-8 sm:gap-8 md:gap-4 lg:hover:!opacity-100 lg:group-hover/list:opacity-50"
             >
               <div className="absolute -inset-x-4 -inset-y-4 z-0 hidden rounded-md transition motion-reduce:transition-none lg:-inset-x-6 lg:block lg:group-hover:bg-card/50 lg:group-hover:shadow-[inset_0_1px_0_0_rgba(148,163,184,0.1)]" />
@@ -87,35 +69,12 @@ export function Projects() {
                 <h3>
                   <span className="inline-flex items-baseline font-medium leading-tight text-foreground transition-colors group-hover:text-accent group-focus-visible:text-accent">
                     {project.title}
-                    <ArrowUpRight
-                      className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
                   </span>
                 </h3>
 
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
-
-                {(project.stars !== undefined || project.forks !== undefined) && (
-                  <div className="mt-3 flex items-center gap-4 text-xs text-muted-foreground">
-                    {project.stars !== undefined && (
-                      <span className="inline-flex items-center gap-1">
-                        <Star className="h-3.5 w-3.5" aria-hidden="true" />
-                        <span>{project.stars.toLocaleString()}</span>
-                        <span className="sr-only">stars</span>
-                      </span>
-                    )}
-                    {project.forks !== undefined && (
-                      <span className="inline-flex items-center gap-1">
-                        <GitFork className="h-3.5 w-3.5" aria-hidden="true" />
-                        <span>{project.forks.toLocaleString()}</span>
-                        <span className="sr-only">forks</span>
-                      </span>
-                    )}
-                  </div>
-                )}
 
                 <ul className="mt-3 flex flex-wrap gap-1.5" aria-label="Technologies used">
                   {project.stack.map((tech) => (
@@ -137,20 +96,20 @@ export function Projects() {
                   className="rounded border border-border/60 transition group-hover:border-accent/50 sm:aspect-auto sm:h-20 sm:w-full sm:object-cover"
                 />
               </div>
-            </a>
+            </article>
           </li>
         ))}
       </ul>
 
       <div className="mt-12">
         <a
-          href="https://github.com"
+          href="/resume.pdf"
           target="_blank"
           rel="noreferrer noopener"
           className="inline-flex items-center font-medium leading-tight text-foreground group"
         >
           <span className="border-b border-transparent pb-px transition group-hover:border-accent group-focus-visible:border-accent">
-            View Full Project Archive
+            See More Project Context
           </span>
           <ArrowUpRight
             className="ml-1 inline-block h-4 w-4 shrink-0 translate-y-px transition-transform group-hover:-translate-y-1 group-hover:translate-x-1"

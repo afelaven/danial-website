@@ -13,31 +13,30 @@ export function About() {
 
       <div className="space-y-4 leading-relaxed text-muted-foreground">
         <p>
-          I&apos;m a software engineer passionate about building distributed systems and
-          developer tools that make hard problems feel approachable. My favorite work lives at the
-          intersection of platform engineering and product, crafting infrastructure that empowers
-          teams to ship faster without compromising reliability.
+          I&apos;m a senior software developer with 5+ years of experience building production
+          mobile apps across banking, healthcare, and enterprise projects. My core work is in{" "}
+          <span className="font-medium text-foreground">Flutter</span>,{" "}
+          <span className="font-medium text-foreground">Dart</span>, RESTful APIs, app releases,
+          and cross-functional delivery.
         </p>
         <p>
-          Currently, I&apos;m a Senior Engineer at{" "}
-          <span className="font-medium text-foreground">Northwind Labs</span>, leading the platform
-          team that powers our real-time data pipeline serving over 4B events per day. I focus on
-          observability, fault tolerance, and the quiet design decisions that keep systems healthy
-          at 3am.
+          Currently, I&apos;m a Senior Software Developer at{" "}
+          <span className="font-medium text-foreground">Mandrill Tech Sdn. Bhd.</span>, developing
+          and maintaining features for two banking mobile applications. I contribute across mobile
+          apps, web portals, and backend work, taking features from requirement clarification through
+          implementation, testing support, bug fixing, and release preparation.
         </p>
         <p>
-          In the past, I&apos;ve had the opportunity to develop software across a variety of
-          settings — from{" "}
-          <span className="font-medium text-foreground">early-stage startups</span> and{" "}
-          <span className="font-medium text-foreground">Series C scale-ups</span> to{" "}
-          <span className="font-medium text-foreground">large enterprise teams</span> at Fortune
-          500 companies. I&apos;ve shipped everything from low-level Rust services to consumer
-          iOS apps with millions of installs.
+          Before that, I worked with{" "}
+          <span className="font-medium text-foreground">HAYAT Technologies</span> as an Assistant
+          Team Lead and Flutter Developer, including work on SELANGKAH, a public healthcare
+          platform used during the COVID-19 pandemic. That role sharpened my experience in sprint
+          planning, progress tracking, developer support, and stakeholder collaboration.
         </p>
         <p>
-          Outside of work, you&apos;ll find me contributing to open source, mentoring junior
-          engineers, writing about systems design, or out on long trail runs trying to clear my
-          head between deploys.
+          I like work where mobile craft meets delivery discipline: clean state management, reliable
+          API integrations, practical testing support, and steady communication with QA, backend,
+          frontend, design, product, and stakeholder teams.
         </p>
       </div>
     </section>
