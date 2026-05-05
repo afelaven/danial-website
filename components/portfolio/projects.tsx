@@ -11,12 +11,12 @@ type Project = {
 
 const PROJECTS: Project[] = [
   {
-    title: "Banking / Fintech Mobile Apps",
+    title: "Banking / Fintech App and Web Work",
     description:
-      "Production mobile app work across UOB Bank, Affin Bank, and MoneyX, focused on Flutter feature delivery, RESTful integrations, bug fixing, testing support, and release preparation.",
+      "Production app and website work across Hong Leong Bank, Affin Bank, and MoneyX, focused on Flutter and Flutter Web delivery, RESTful integrations, bug fixing, testing support, and release preparation.",
     image: "/project-helix.jpg",
-    imageAlt: "Dashboard preview representing banking and fintech mobile delivery",
-    stack: ["Flutter", "Dart", "RESTful APIs", "JSON", "App Releases"],
+    imageAlt: "Dashboard preview representing banking and fintech app and web delivery",
+    stack: ["Flutter", "Flutter Web", "Dart", "RESTful APIs", "JSON"],
   },
   {
     title: "SELANGKAH",

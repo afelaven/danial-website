@@ -53,8 +53,8 @@ const EXPERIENCE = [
     location: "Petaling Jaya, MY",
     period: "May 2024 - Present",
     bullets: [
-      "Develop and maintain production features for two banking mobile applications using Flutter and Dart.",
-      "Contribute across mobile, web portal, and backend work for enterprise delivery.",
+      "Develop and maintain production banking features across a mobile app and a Flutter Web website.",
+      "Contribute across mobile app, Flutter Web, web portal, and backend work for enterprise delivery.",
       "Own features from requirement clarification through implementation, QA support, bug fixing, and release prep.",
       "Integrate RESTful APIs, JSON data handling, and third-party services for core app flows.",
       "Investigate production issues, regression bugs, and practical technical improvements.",
@@ -106,14 +106,15 @@ const MILESTONES = [
 const PROJECTS = [
   {
     domain: "Banking",
-    title: "UOB Bank",
+    title: "Hong Leong Bank",
     description:
-      "Production banking mobile app work: feature delivery, API integration, regression fixes, and release support across iOS and Android.",
-    stack: ["Flutter", "Dart", "REST"],
-    accent: "#005eb8",
-    label: "UOB",
-    logo: "/logo-uob.svg",
+      "Production banking website work using Flutter Web: feature delivery, API integration, regression fixes, and release support.",
+    stack: ["Flutter Web", "Dart", "REST"],
+    accent: "#e31b23",
+    label: "HLB",
+    logo: "/logo-hong-leong.svg",
     logoFit: "contain" as const,
+    visual: "web" as const,
   },
   {
     domain: "Banking",
@@ -125,6 +126,7 @@ const PROJECTS = [
     label: "AFFIN",
     logo: "/logo-affin.svg",
     logoFit: "contain" as const,
+    visual: "mobile" as const,
   },
   {
     domain: "Fintech",
@@ -136,6 +138,7 @@ const PROJECTS = [
     label: "$X",
     logo: "/logo-moneyx.png",
     logoFit: "cover" as const,
+    visual: "mobile" as const,
   },
   {
     domain: "Healthcare",
@@ -147,6 +150,7 @@ const PROJECTS = [
     label: "SLK",
     logo: "/logo-selangkah.jpg",
     logoFit: "cover" as const,
+    visual: "mobile" as const,
   },
   {
     domain: "Enterprise",
@@ -158,6 +162,7 @@ const PROJECTS = [
     label: "N7",
     logo: "/logo-net7.jpg",
     logoFit: "cover" as const,
+    visual: "mobile" as const,
   },
 ]
 
@@ -677,31 +682,64 @@ function ProjectMockup({ project }: { project: (typeof PROJECTS)[number] }) {
 
   return (
     <div className="project-visual" style={style}>
-      <div className="phone-frame" aria-hidden="true">
-        <div className="phone-notch" />
-        <div className="phone-screen">
-          <div className="phone-status">
-            <span>9:41</span>
-            <span>5G</span>
+      {project.visual === "web" ? (
+        <div className="web-frame" aria-hidden="true">
+          <div className="web-chrome">
+            <span />
+            <span />
+            <span />
+            <strong>flutter.web</strong>
           </div>
-          <div className="phone-logo-wrap">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={project.logo}
-              alt={`${project.title} logo`}
-              className={cn(
-                "absolute inset-0 h-full w-full",
-                project.logoFit === "cover" ? "object-cover" : "object-contain p-2",
-              )}
-            />
-          </div>
-          <div className="phone-pills">
-            <span />
-            <span />
-            <span />
+          <div className="web-screen">
+            <div className="web-hero">
+              <div className="web-logo-wrap">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={project.logo} alt={`${project.title} logo`} />
+              </div>
+              <div className="web-hero-copy">
+                <span>{project.label}</span>
+                <strong>{project.title}</strong>
+              </div>
+            </div>
+            <div className="web-grid">
+              <span className="web-card strong" />
+              <span className="web-card" />
+              <span className="web-card" />
+            </div>
+            <div className="web-lines">
+              <span />
+              <span />
+              <span />
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <div className="phone-frame" aria-hidden="true">
+          <div className="phone-notch" />
+          <div className="phone-screen">
+            <div className="phone-status">
+              <span>9:41</span>
+              <span>5G</span>
+            </div>
+            <div className="phone-logo-wrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={project.logo}
+                alt={`${project.title} logo`}
+                className={cn(
+                  "absolute inset-0 h-full w-full",
+                  project.logoFit === "cover" ? "object-cover" : "object-contain p-2",
+                )}
+              />
+            </div>
+            <div className="phone-pills">
+              <span />
+              <span />
+              <span />
+            </div>
+          </div>
+        </div>
+      )}
       <a href="/danial-resume.pdf" target="_blank" rel="noreferrer noopener" className="project-open" aria-label={`Open resume context for ${project.title}`}>
         <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
       </a>

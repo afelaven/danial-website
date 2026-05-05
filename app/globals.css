@@ -303,6 +303,143 @@
   transform: rotate(0deg) translateY(-4px);
 }
 
+.web-frame {
+  position: relative;
+  width: min(18rem, calc(100% - 4rem));
+  overflow: hidden;
+  border: 2px solid color-mix(in srgb, var(--project-accent) 42%, rgba(255, 255, 255, 0.16));
+  border-radius: 0.85rem;
+  background: linear-gradient(180deg, #141719, #050607);
+  box-shadow: 0 24px 48px rgba(0, 0, 0, 0.45);
+  transform: rotate(-2deg);
+  transition: transform 220ms ease;
+}
+
+.portfolio-card:hover .web-frame {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+.web-chrome {
+  display: grid;
+  grid-template-columns: repeat(3, 0.5rem) 1fr;
+  gap: 0.35rem;
+  align-items: center;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.12);
+  padding: 0.65rem 0.75rem;
+}
+
+.web-chrome span {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--project-accent) 72%, white);
+}
+
+.web-chrome strong {
+  justify-self: end;
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: rgba(226, 232, 240, 0.64);
+}
+
+.web-screen {
+  min-height: 10.75rem;
+  padding: 1rem;
+  background:
+    radial-gradient(circle at 18% 20%, color-mix(in srgb, var(--project-accent) 18%, transparent), transparent 28%),
+    rgba(15, 23, 42, 0.86);
+}
+
+.web-hero {
+  display: grid;
+  grid-template-columns: 4.6rem minmax(0, 1fr);
+  gap: 0.35rem;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--project-accent) 42%, transparent);
+  border-radius: 0.55rem;
+  background: color-mix(in srgb, var(--project-accent) 10%, rgba(5, 13, 26, 0.62));
+  padding: 0.85rem;
+}
+
+.web-logo-wrap {
+  display: grid;
+  height: 3.3rem;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 0.45rem;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.web-logo-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0.32rem;
+}
+
+.web-hero-copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.web-hero-copy span {
+  font-family: var(--font-jetbrains-mono), monospace;
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: var(--project-accent);
+}
+
+.web-hero-copy strong {
+  max-width: 100%;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: rgba(248, 250, 252, 0.94);
+}
+
+.web-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 0.45rem;
+}
+
+.web-card {
+  height: 2.15rem;
+  border: 1px solid rgba(226, 232, 240, 0.14);
+  border-radius: 0.35rem;
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.web-card.strong {
+  background: color-mix(in srgb, var(--project-accent) 52%, rgba(255, 255, 255, 0.08));
+}
+
+.web-lines {
+  margin-top: 0.85rem;
+  display: grid;
+  gap: 0.35rem;
+}
+
+.web-lines span {
+  height: 0.28rem;
+  border-radius: 999px;
+  background: rgba(226, 232, 240, 0.22);
+}
+
+.web-lines span:nth-child(1) {
+  width: 82%;
+}
+
+.web-lines span:nth-child(2) {
+  width: 66%;
+}
+
+.web-lines span:nth-child(3) {
+  width: 46%;
+}
+
 .phone-notch {
   position: absolute;
   top: 0.25rem;
@@ -480,6 +617,7 @@
   .portfolio-button,
   .portfolio-card,
   .phone-frame,
+  .web-frame,
   .project-open,
   .side-rail a,
   .reveal {

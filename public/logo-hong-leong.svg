@@ -1,0 +1,11 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Hong Leong Bank</title>
+  <desc id="desc">Hong Leong Bank project logo mark for portfolio card.</desc>
+  <rect width="640" height="360" rx="40" fill="#ffffff"/>
+  <rect x="42" y="42" width="556" height="276" rx="30" fill="#e31b23"/>
+  <rect x="68" y="68" width="504" height="224" rx="22" fill="#ffffff"/>
+  <path d="M114 224V136H140V169H178V136H204V224H178V190H140V224H114Z" fill="#e31b23"/>
+  <path d="M229 224V136H255V202H294V224H229Z" fill="#e31b23"/>
+  <path d="M317 224V136H360C378 136 392 149 392 165C392 174 388 182 381 187C390 192 396 201 396 212C396 229 382 242 363 242H317V224ZM343 172H356C363 172 367 168 367 162C367 156 363 152 356 152H343V172ZM343 226H359C366 226 371 222 371 215C371 208 366 204 359 204H343V226Z" fill="#e31b23" transform="translate(0 -18)"/>
+  <text x="116" y="270" fill="#1f2937" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="700" letter-spacing="0">Hong Leong Bank</text>
+</svg>

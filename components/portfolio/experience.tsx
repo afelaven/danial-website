@@ -16,8 +16,8 @@ const JOBS: Job[] = [
     company: "Mandrill Tech Sdn. Bhd.",
     location: "Mutiara Damansara, Petaling Jaya",
     description:
-      "Develop and maintain production features for two banking mobile applications using Flutter and Dart. Contribute across mobile app, web portal, and backend work, owning delivery from requirement clarification through implementation, testing support, bug fixing, and release preparation.",
-    stack: ["Flutter", "Dart", "RESTful APIs", "JSON", "React", "Backend Development"],
+      "Develop and maintain production features across a banking mobile app and a Flutter Web banking website. Contribute across mobile app, web portal, and backend work, owning delivery from requirement clarification through implementation, testing support, bug fixing, and release preparation.",
+    stack: ["Flutter", "Flutter Web", "Dart", "RESTful APIs", "JSON", "React", "Backend Development"],
   },
   {
     period: "Jan 2023 — Apr 2024",

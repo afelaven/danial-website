@@ -22,9 +22,10 @@ export function About() {
         <p>
           Currently, I&apos;m a Senior Software Developer at{" "}
           <span className="font-medium text-foreground">Mandrill Tech Sdn. Bhd.</span>, developing
-          and maintaining features for two banking mobile applications. I contribute across mobile
-          apps, web portals, and backend work, taking features from requirement clarification through
-          implementation, testing support, bug fixing, and release preparation.
+          and maintaining features across a banking mobile app and a Flutter Web banking website. I
+          contribute across mobile apps, web portals, and backend work, taking features from
+          requirement clarification through implementation, testing support, bug fixing, and release
+          preparation.
         </p>
         <p>
           Before that, I worked with{" "}
