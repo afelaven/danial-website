@@ -37,7 +37,10 @@
       "Bash(rm -rf .next)",
       "Bash(rtk --version)",
       "Bash(rtk gain *)",
-      "WebFetch(domain:khind.com.my)"
+      "WebFetch(domain:khind.com.my)",
+      "Bash(rtk hook *)",
+      "Bash(rtk cat *)",
+      "Bash(rtk git *)"
     ]
   }
 }
