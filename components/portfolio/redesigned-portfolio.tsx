@@ -27,24 +27,25 @@ const NAV = [
   { id: "about", label: "About" },
   { id: "experience", label: "Experience" },
   { id: "skills", label: "Skills" },
+  { id: "leadership", label: "Proof" },
   { id: "projects", label: "Projects" },
   { id: "contact", label: "Contact" },
 ] as const
 
-const ROLES = ["Mobile Team Lead.", "Flutter Developer.", "Senior Software Developer."]
+const ROLES = ["Senior Software Developer.", "Mobile Team Lead.", "Flutter Developer.", "React Developer."]
 
 const STATS = [
   { value: 6, suffix: "+", label: "Years experience" },
   { value: 5, suffix: "", label: "Production apps" },
   { value: 2, suffix: "", label: "Banking clients" },
-  { value: 3, suffix: "", label: "Industries shipped" },
+  { value: 4, suffix: "", label: "Product domains" },
 ]
 
 const NOW_ITEMS = [
-  { key: "building", value: "Banking and enterprise platforms" },
-  { key: "learning", value: "Flutter, React, web, backend CI/CD, and AI" },
-  { key: "reading", value: "Designing Data-Intensive Applications" },
-  { key: "exploring", value: "Server-driven UI and Flutter web" },
+  { key: "target", value: "Senior Software Engineer / Mobile Team Lead" },
+  { key: "strength", value: "Flutter delivery, API-driven apps, release ownership" },
+  { key: "domains", value: "Banking, fintech, healthcare, enterprise" },
+  { key: "style", value: "Clear ownership, calm delivery, practical technical leadership" },
 ]
 
 const EXPERIENCE = [
@@ -54,11 +55,11 @@ const EXPERIENCE = [
     location: "Petaling Jaya, MY",
     period: "May 2024 - Present",
     bullets: [
-      "Develop and maintain production banking features across a mobile app and a Flutter Web website.",
-      "Contribute across mobile app, Flutter Web, web portal, and backend work for enterprise delivery.",
-      "Own features from requirement clarification through implementation, QA support, bug fixing, and release prep.",
-      "Integrate RESTful APIs, JSON data handling, and third-party services for core app flows.",
-      "Investigate production issues, regression bugs, and practical technical improvements.",
+      "Own banking features from requirement clarification through Flutter implementation, QA support, production fixes, and release readiness.",
+      "Deliver across mobile app, Flutter Web banking website, web portal, and backend surfaces when end-to-end delivery needs it.",
+      "Translate product and stakeholder requirements into API-driven app flows, JSON models, clear states, and practical release scope.",
+      "Integrate REST APIs and third-party services for customer-facing banking and enterprise workflows.",
+      "Investigate regression and production issues, isolate root causes, and ship fixes without losing release momentum.",
     ],
   },
   {
@@ -67,11 +68,11 @@ const EXPERIENCE = [
     location: "Mid Valley, KL",
     period: "Apr 2021 - Apr 2024",
     bullets: [
-      "Worked on SELANGKAH, a public healthcare platform used during the COVID-19 pandemic.",
-      "Built features, integrated RESTful APIs, fixed bugs, and supported App Store and Play Store releases.",
-      "Used BLoC and Provider for state management across Flutter modules.",
-      "Supported sprint planning, task coordination, progress tracking, and developer support.",
-      "Collaborated with QA, backend, project, and stakeholder teams to keep delivery moving.",
+      "Helped deliver SELANGKAH, a public healthcare platform used during the COVID-19 pandemic.",
+      "Built and maintained Flutter features across BLoC and Provider modules, with REST API integration and store release support.",
+      "Supported sprint planning, task breakdown, progress tracking, and developer coordination as Assistant Team Lead.",
+      "Worked with QA, backend, project, and stakeholder teams to unblock delivery and keep releases moving.",
+      "Reviewed issues across implementation, API behavior, testing feedback, and production support before release.",
     ],
   },
   {
@@ -80,28 +81,40 @@ const EXPERIENCE = [
     location: "Masjid Jamek, KL",
     period: "Sep 2020 - Apr 2021",
     bullets: [
-      "Developed, tested, and maintained iOS and Android mobile app features.",
-      "Integrated RESTful APIs and supported enhancements, bug fixes, and maintenance tasks.",
-      "Collaborated with designers, product managers, QA engineers, and developers to deliver updates.",
-      "Assisted with testing, issue investigation, and production support.",
+      "Developed and maintained iOS and Android healthcare app features while building production support habits early.",
+      "Integrated REST APIs, supported enhancements, fixed bugs, and helped validate app behavior before release.",
+      "Collaborated with designers, product managers, QA engineers, and developers to deliver stable mobile updates.",
+      "Handled issue investigation and maintenance work across active healthcare mobile apps.",
     ],
   },
 ]
 
 const SKILLS = [
-  { title: "Mobile", icon: Smartphone, items: ["Flutter", "Dart", "Android", "iOS"] },
-  { title: "Leadership", icon: Users, items: ["Sprint Planning", "Task Coordination", "Stakeholder Collab"] },
-  { title: "State", icon: Cpu, items: ["BLoC", "Cubit", "Provider", "Riverpod"] },
-  { title: "Frontend", icon: Code2, items: ["React", "JavaScript", "Next.js", "Tailwind"] },
-  { title: "API and Data", icon: Database, items: ["RESTful APIs", "JSON", "3rd-party Integrations"] },
-  { title: "Tools", icon: GitBranch, items: ["Git", "Jira", "App Store", "Play Store"] },
+  { title: "Mobile Engineering", icon: Smartphone, items: ["Flutter", "Dart", "Android", "iOS", "Flutter Web"] },
+  { title: "Technical Leadership", icon: Users, items: ["Feature Ownership", "Task Breakdown", "Developer Support", "Stakeholder Alignment"] },
+  { title: "Architecture", icon: Cpu, items: ["BLoC", "Cubit", "Provider", "Riverpod", "Modular UI"] },
+  { title: "Frontend", icon: Code2, items: ["React", "Next.js", "JavaScript", "Tailwind"] },
+  { title: "API and Data", icon: Database, items: ["REST APIs", "JSON Models", "3rd-party Integrations", "Error States"] },
+  { title: "Delivery", icon: GitBranch, items: ["Git", "Jira", "Code Review", "App Store", "Play Store"] },
 ]
 
-const MILESTONES = [
-  { title: "B.CS (Hons.)", org: "Universiti Teknologi MARA", year: "2018 - 2020" },
-  { title: "SELANGKAH delivery", org: "National COVID-19 platform", year: "2021" },
-  { title: "Assistant Team Lead", org: "HAYAT Technologies", year: "2023" },
-  { title: "Senior Developer track", org: "Mandrill Tech", year: "2024" },
+const LEADERSHIP_PROOF = [
+  {
+    title: "Feature ownership",
+    detail: "Own work from requirement clarification through implementation, QA feedback, release prep, and production fixes.",
+  },
+  {
+    title: "Delivery coordination",
+    detail: "Supported sprint planning, task breakdown, progress tracking, and developer coordination as Assistant Team Lead.",
+  },
+  {
+    title: "Regulated product experience",
+    detail: "Shipped and supported mobile/web work across banking, fintech, healthcare, and enterprise platforms.",
+  },
+  {
+    title: "Cross-functional execution",
+    detail: "Work directly with product, QA, backend, design, project, and stakeholder teams to keep releases moving.",
+  },
 ]
 
 type ProjectLink =
@@ -128,7 +141,7 @@ const PROJECTS: Project[] = [
     domain: "Enterprise",
     title: "Net7",
     description:
-      "Enterprise platform work spanning mobile, web portal, and backend contributions for end-to-end requirements delivery.",
+      "Contributed across mobile app, web portal, and backend surfaces for an enterprise networking platform. Focused on turning requirements into shippable workflows, integrating APIs, and supporting end-to-end delivery across multiple product surfaces.",
     stack: ["Flutter", "React", "Backend"],
     accent: "#a78bfa",
     label: "N7",
@@ -145,7 +158,7 @@ const PROJECTS: Project[] = [
     domain: "Fintech",
     title: "MoneyX",
     description:
-      "Fintech mobile experience covering core money flows, third-party service integration, JSON handling, and bug triage.",
+      "Worked on production fintech mobile flows involving API-driven data, third-party service integration, JSON handling, and release issue triage. Emphasis was reliability, clear app states, and safe delivery for money-related user journeys.",
     stack: ["Flutter", "Dart", "JSON"],
     accent: "#e60013",
     label: "$X",
@@ -162,7 +175,7 @@ const PROJECTS: Project[] = [
     domain: "Banking",
     title: "Affin Bank",
     description:
-      "Mobile banking application contributions across customer flows, sprint releases, QA support, and production issue triage.",
+      "Delivered Flutter mobile banking contributions across customer-facing flows, BLoC-based state management, REST API integration, sprint releases, QA validation, and production issue triage for App Store and Play Store delivery.",
     stack: ["Flutter", "BLoC", "REST"],
     accent: "#e3192e",
     label: "AFFIN",
@@ -179,7 +192,7 @@ const PROJECTS: Project[] = [
     domain: "Banking",
     title: "Hong Leong Bank",
     description:
-      "Production banking website work using Flutter Web: feature delivery, API integration, regression fixes, and release support.",
+      "Built and maintained Flutter Web banking website features with REST API integration, regression fixes, and release support. Work required careful coordination across stakeholder requirements, QA feedback, and production banking constraints.",
     stack: ["Flutter Web", "Dart", "REST"],
     accent: "#e31b23",
     label: "HLB",
@@ -192,7 +205,7 @@ const PROJECTS: Project[] = [
     domain: "Healthcare",
     title: "SELANGKAH",
     description:
-      "Public healthcare platform used during the COVID-19 pandemic with cross-platform delivery and store release support.",
+      "Helped deliver and maintain a public healthcare platform used during the COVID-19 pandemic. Built Flutter features, integrated REST APIs, handled BLoC/Provider modules, fixed bugs, and supported frequent mobile store releases.",
     stack: ["Flutter", "Provider", "REST"],
     accent: "#f472b6",
     label: "SLK",
@@ -208,7 +221,7 @@ const PROJECTS: Project[] = [
     domain: "Mobile (Freelance)",
     title: "Khind Care",
     description:
-      "Freelance mobile delivery for Khind Care: cross-platform feature build, store release coordination, and post-launch support.",
+      "Handled freelance cross-platform mobile delivery for Khind Care, covering Flutter feature work, REST integration, App Store and Play Store coordination, and post-launch support with direct client accountability.",
     stack: ["Flutter", "Dart", "REST"],
     accent: "#22d3ee",
     label: "KC",
@@ -273,9 +286,9 @@ export function RedesignedPortfolio() {
               <span className="typing-caret" aria-hidden="true" />
             </h2>
             <p className="reveal mt-6 max-w-2xl text-base leading-8 text-muted-foreground sm:text-lg" data-reveal-delay="3">
-              Senior Software Developer with 6+ years shipping production Flutter, React Native, and
-              React web apps across banking, fintech, healthcare, and enterprise platforms. Currently
-              focused on cross-functional delivery and mobile leadership at{" "}
+              Senior Software Developer with 6+ years building production Flutter, Flutter Web, and
+              React apps across banking, fintech, healthcare, and enterprise platforms. I specialize
+              in API-driven mobile delivery, release ownership, and practical technical leadership at{" "}
               <span className="font-medium text-foreground">Mandrill Tech</span>.
             </p>
 
@@ -286,7 +299,7 @@ export function RedesignedPortfolio() {
               </a>
               <a href="/danial-resume.pdf" target="_blank" rel="noreferrer noopener" className="portfolio-button border border-accent/50 text-accent hover:bg-accent/10">
                 <Download className="h-4 w-4" aria-hidden="true" />
-                Download CV
+                Download Resume
               </a>
             </div>
 
@@ -308,21 +321,20 @@ export function RedesignedPortfolio() {
           <div className="grid gap-10 lg:grid-cols-[1.55fr_0.95fr]">
             <div className="reveal space-y-5 text-base leading-8 text-muted-foreground">
               <p>
-                I write mobile and web applications for a living - Flutter and Dart on mobile,
-                React Native for cross-platform, and React for the web - and I have spent the last
-                6+ years putting them in front of real users in regulated industries.
+                I build and help lead production mobile work for high-trust products. My core stack is
+                Flutter and Dart, with hands-on experience across Flutter Web, React, REST APIs,
+                app releases, and backend-adjacent delivery when a feature needs end-to-end ownership.
               </p>
               <p>
-                I started with iOS and Android maintenance work at{" "}
-                <span className="font-medium text-foreground">ASP Medical</span>, moved into
-                cross-platform Flutter development at{" "}
-                <span className="font-medium text-foreground">HAYAT Technologies</span>, then into
-                banking app delivery at <span className="font-medium text-foreground">Mandrill Tech</span>.
+                I have shipped and supported apps across banking, fintech, healthcare, and enterprise
+                environments, including public healthcare work during the COVID-19 pandemic and current
+                banking delivery at <span className="font-medium text-foreground">Mandrill Tech</span>.
               </p>
               <p>
-                I am strongest where mobile craft meets delivery discipline: clean state management,
-                reliable API integrations, release support, testing coordination, and steady
-                communication with product, QA, backend, design, and stakeholder teams.
+                I am strongest where engineering quality meets delivery discipline: clean state
+                management, reliable API integration, clear release scope, production debugging, code
+                review habits, and steady communication with product, QA, backend, design, and
+                stakeholder teams.
               </p>
             </div>
 
@@ -416,16 +428,16 @@ export function RedesignedPortfolio() {
           </div>
         </section>
 
-        <section className="section-block">
-          <SectionHeading number="04" title="Milestones" />
+        <section id="leadership" className="section-block">
+          <SectionHeading number="04" title="Leadership proof" />
           <ol className="reveal border-l border-accent/35 pl-6">
-            {MILESTONES.map((milestone) => (
-              <li key={`${milestone.title}-${milestone.year}`} className="relative grid gap-2 pb-9 last:pb-0 sm:grid-cols-[10rem_1fr] sm:gap-8">
+            {LEADERSHIP_PROOF.map((item, index) => (
+              <li key={item.title} className="relative grid gap-2 pb-9 last:pb-0 sm:grid-cols-[10rem_1fr] sm:gap-8">
                 <span className="absolute -left-[1.9rem] top-1 h-3 w-3 rounded-full border-2 border-accent bg-background shadow-[0_0_18px_rgba(34,211,238,0.45)]" />
-                <span className="font-mono text-sm text-accent">{milestone.year}</span>
+                <span className="font-mono text-sm text-accent">{String(index + 1).padStart(2, "0")}</span>
                 <span>
-                  <strong className="block text-foreground">{milestone.title}</strong>
-                  <span className="text-sm text-muted-foreground">{milestone.org}</span>
+                  <strong className="block text-foreground">{item.title}</strong>
+                  <span className="text-sm leading-7 text-muted-foreground">{item.detail}</span>
                 </span>
               </li>
             ))}
@@ -473,20 +485,25 @@ export function RedesignedPortfolio() {
 
         <section id="contact" className="section-block pb-20 text-center">
           <p className="reveal font-mono text-sm text-accent">$ ./contact.sh</p>
-          <h2 className="reveal mt-4 text-4xl font-bold text-foreground sm:text-6xl" data-reveal-delay="1">Let&apos;s build something.</h2>
+          <h2 className="reveal mt-4 text-4xl font-bold text-foreground sm:text-6xl" data-reveal-delay="1">Let&apos;s talk.</h2>
           <p className="reveal mx-auto mt-5 max-w-2xl text-base leading-8 text-muted-foreground" data-reveal-delay="2">
-            Open to interesting mobile or full-stack work across banking, healthcare, fintech, and
-            enterprise products. Reach me directly or use the terminal.
+            Open to Senior Software Developer, Senior Software Engineer, and Mobile Team Lead roles.
+            Contact me by email, phone, WhatsApp, or LinkedIn. My resume is available below.
           </p>
 
-          <div className="reveal mx-auto mt-9 max-w-2xl" data-reveal-delay="3">
-            <ContactTerminal />
-          </div>
-
-          <div className="reveal mt-8 flex flex-wrap justify-center gap-3" data-reveal-delay="4">
+          <div className="reveal mt-8 flex flex-wrap justify-center gap-3" data-reveal-delay="3">
             <a href="mailto:danhaikalwork@gmail.com" className="portfolio-button bg-accent text-accent-foreground">
               <Mail className="h-4 w-4" aria-hidden="true" />
               Email
+            </a>
+            <a
+              href="https://www.linkedin.com/in/danial-haikal-801b571ab/"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="portfolio-button border border-border text-muted-foreground hover:border-accent hover:text-accent"
+            >
+              <Linkedin className="h-4 w-4" aria-hidden="true" />
+              LinkedIn
             </a>
             <a href="tel:+60177565622" className="portfolio-button border border-border text-muted-foreground hover:border-accent hover:text-accent">
               <Phone className="h-4 w-4" aria-hidden="true" />
@@ -508,6 +525,10 @@ export function RedesignedPortfolio() {
               Resume
             </a>
           </div>
+
+          <div className="reveal mx-auto mt-9 max-w-2xl" data-reveal-delay="4">
+            <ContactTerminal />
+          </div>
         </section>
       </main>
 
@@ -524,7 +545,7 @@ export function RedesignedPortfolio() {
       </aside>
 
       <footer className="relative z-10 mx-auto max-w-6xl border-t border-border/70 px-5 py-8 text-center font-mono text-xs text-muted-foreground sm:px-8 lg:px-10">
-        <p>Designed and built with ❤️ by Danial Haikal. 2026.</p>
+        <p>Designed and built by Danial Haikal. 2026.</p>
         <div className="mt-3 flex justify-center gap-5">
           <a href="https://www.linkedin.com/in/danial-haikal-801b571ab/" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
             LinkedIn
@@ -560,10 +581,11 @@ function SiteNav({ activeSection }: { activeSection: string }) {
               href="/danial-resume.pdf"
               target="_blank"
               rel="noreferrer noopener"
-              className="ml-1 grid h-9 w-9 shrink-0 place-items-center rounded-md border border-accent/50 text-accent transition hover:bg-accent/10"
+              className="ml-1 inline-flex h-9 shrink-0 items-center gap-2 rounded-md border border-accent/50 px-3 font-mono text-xs font-bold text-accent transition hover:bg-accent/10"
               aria-label="Open resume"
             >
               <Download className="h-4 w-4" aria-hidden="true" />
+              Resume
             </a>
           </div>
 
@@ -607,7 +629,7 @@ function NavLink({
       className={cn(
         "shrink-0 rounded-md font-mono transition",
         compact
-          ? "flex-1 px-1 py-1.5 text-center text-[11px]"
+          ? "flex-1 px-1 py-1.5 text-center text-[10px]"
           : "px-3 py-2 text-xs",
         active ? "bg-accent/10 text-accent" : "text-muted-foreground hover:text-accent",
       )}
@@ -656,7 +678,7 @@ function ContactTerminal() {
     } else if (cmd === "whoami") {
       output.push({
         type: "output",
-        text: "Danial Haikal - Senior Software Developer focused on Flutter, Dart, React, and delivery.",
+        text: "Danial Haikal - Senior Software Developer focused on production mobile delivery and technical leadership.",
       })
     } else if (cmd === "contact") {
       output.push({ type: "output", text: "email: danhaikalwork@gmail.com" })
@@ -1120,19 +1142,19 @@ function useTypewriter(words: string[]) {
 
     if (phase === "typing") {
       if (text.length < word.length) {
-        timeout = window.setTimeout(() => setText(word.slice(0, text.length + 1)), 90)
+        timeout = window.setTimeout(() => setText(word.slice(0, text.length + 1)), 75)
       } else {
-        timeout = window.setTimeout(() => setPhase("holding"), 1600)
+        timeout = window.setTimeout(() => setPhase("holding"), 1800)
       }
     }
 
     if (phase === "holding") {
-      timeout = window.setTimeout(() => setPhase("deleting"), 200)
+      timeout = window.setTimeout(() => setPhase("deleting"), 450)
     }
 
     if (phase === "deleting") {
       if (text.length > 0) {
-        timeout = window.setTimeout(() => setText(text.slice(0, -1)), 45)
+        timeout = window.setTimeout(() => setText(text.slice(0, -1)), 42)
       } else {
         setWordIndex((index) => index + 1)
         setPhase("typing")
