@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   description:
     "Senior Software Developer building production mobile and web apps across banking, fintech, healthcare, and enterprise platforms.",
   generator: "Next.js",
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    shortcut: "/icon.svg",
+    apple: "/apple-icon.png",
+  },
 }
 
 export default function RootLayout({
