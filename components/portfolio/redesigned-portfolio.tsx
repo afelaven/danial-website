@@ -3,16 +3,16 @@
 import type { CSSProperties } from "react"
 import { useEffect, useRef, useState } from "react"
 import {
-  ArrowUpRight,
   Code2,
   Cpu,
   Database,
   Download,
+  ExternalLink,
   FileText,
   Folder,
   GitBranch,
-  Github,
   Linkedin,
+  Lock,
   Mail,
   Phone,
   Smartphone,
@@ -21,6 +21,7 @@ import {
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { useReveal } from "@/hooks/use-reveal"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 
 const NAV = [
   { id: "about", label: "About" },
@@ -103,30 +104,42 @@ const MILESTONES = [
   { title: "Senior Developer track", org: "Mandrill Tech", year: "2024" },
 ]
 
-const PROJECTS = [
+type ProjectLink =
+  | { kind: "website"; href: string }
+  | { kind: "android"; href: string }
+  | { kind: "ios"; href: string }
+  | { kind: "internal" }
+
+type Project = {
+  domain: string
+  title: string
+  description: string
+  stack: string[]
+  accent: string
+  label: string
+  logo?: string
+  logoFit?: "cover" | "contain"
+  visual: "web" | "mobile"
+  links?: ProjectLink[]
+}
+
+const PROJECTS: Project[] = [
   {
-    domain: "Banking",
-    title: "Hong Leong Bank",
+    domain: "Enterprise",
+    title: "Net7",
     description:
-      "Production banking website work using Flutter Web: feature delivery, API integration, regression fixes, and release support.",
-    stack: ["Flutter Web", "Dart", "REST"],
-    accent: "#e31b23",
-    label: "HLB",
-    logo: "/logo-hong-leong.svg",
-    logoFit: "contain" as const,
-    visual: "web" as const,
-  },
-  {
-    domain: "Banking",
-    title: "Affin Bank",
-    description:
-      "Mobile banking application contributions across customer flows, sprint releases, QA support, and production issue triage.",
-    stack: ["Flutter", "BLoC", "REST"],
-    accent: "#e3192e",
-    label: "AFFIN",
-    logo: "/logo-affin.svg",
-    logoFit: "contain" as const,
-    visual: "mobile" as const,
+      "Enterprise platform work spanning mobile, web portal, and backend contributions for end-to-end requirements delivery.",
+    stack: ["Flutter", "React", "Backend"],
+    accent: "#a78bfa",
+    label: "N7",
+    logo: "/logo-net7.jpg",
+    logoFit: "cover",
+    visual: "mobile",
+    links: [
+      { kind: "website", href: "https://net7.biz/" },
+      { kind: "android", href: "https://play.google.com/store/apps/details?id=com.mandrilltech.BizTag" },
+      { kind: "ios", href: "https://apps.apple.com/my/app/net7-scan-save-connect/id6745174993" },
+    ],
   },
   {
     domain: "Fintech",
@@ -137,8 +150,43 @@ const PROJECTS = [
     accent: "#e60013",
     label: "$X",
     logo: "/logo-moneyx.png",
-    logoFit: "cover" as const,
-    visual: "mobile" as const,
+    logoFit: "cover",
+    visual: "mobile",
+    links: [
+      { kind: "website", href: "https://www.moneyx.com.my/" },
+      { kind: "android", href: "https://play.google.com/store/apps/details?id=com.hextartech.moneyx" },
+      { kind: "ios", href: "https://apps.apple.com/my/app/moneyx/id6450739960" },
+    ],
+  },
+  {
+    domain: "Banking",
+    title: "Affin Bank",
+    description:
+      "Mobile banking application contributions across customer flows, sprint releases, QA support, and production issue triage.",
+    stack: ["Flutter", "BLoC", "REST"],
+    accent: "#e3192e",
+    label: "AFFIN",
+    logo: "/logo-affin.svg",
+    logoFit: "contain",
+    visual: "mobile",
+    links: [
+      { kind: "website", href: "https://www.affinalways.com/en/AffinAlwaysX" },
+      { kind: "android", href: "https://play.google.com/store/apps/details?id=com.affin.mobilebanking" },
+      { kind: "ios", href: "https://apps.apple.com/my/app/affinalwaysx/id6736671432" },
+    ],
+  },
+  {
+    domain: "Banking",
+    title: "Hong Leong Bank",
+    description:
+      "Production banking website work using Flutter Web: feature delivery, API integration, regression fixes, and release support.",
+    stack: ["Flutter Web", "Dart", "REST"],
+    accent: "#e31b23",
+    label: "HLB",
+    logo: "/logo-hong-leong.svg",
+    logoFit: "contain",
+    visual: "web",
+    links: [{ kind: "internal" }],
   },
   {
     domain: "Healthcare",
@@ -149,20 +197,29 @@ const PROJECTS = [
     accent: "#f472b6",
     label: "SLK",
     logo: "/logo-selangkah.jpg",
-    logoFit: "cover" as const,
-    visual: "mobile" as const,
+    logoFit: "cover",
+    visual: "mobile",
+    links: [
+      { kind: "android", href: "https://play.google.com/store/apps/details?id=sel.main.selangkah" },
+      { kind: "ios", href: "https://apps.apple.com/my/app/selangkah/id1552552227" },
+    ],
   },
   {
-    domain: "Enterprise",
-    title: "Net7",
+    domain: "Mobile (Freelance)",
+    title: "Khind Care",
     description:
-      "Enterprise platform work spanning mobile, web portal, and backend contributions for end-to-end requirements delivery.",
-    stack: ["Flutter", "React", "Backend"],
-    accent: "#a78bfa",
-    label: "N7",
-    logo: "/logo-net7.jpg",
-    logoFit: "cover" as const,
-    visual: "mobile" as const,
+      "Freelance mobile delivery for Khind Care: cross-platform feature build, store release coordination, and post-launch support.",
+    stack: ["Flutter", "Dart", "REST"],
+    accent: "#22d3ee",
+    label: "KC",
+    logo: "/logo-khind.svg",
+    logoFit: "contain",
+    visual: "mobile",
+    links: [
+      { kind: "website", href: "https://khind.com.my/" },
+      { kind: "android", href: "https://play.google.com/store/apps/details?id=com.khind.care" },
+      { kind: "ios", href: "https://apps.apple.com/my/app/khind-care/id1630830536" },
+    ],
   },
 ]
 
@@ -376,32 +433,41 @@ export function RedesignedPortfolio() {
 
         <section id="projects" className="section-block">
           <SectionHeading number="05" title="Selected projects" />
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {PROJECTS.map((project, index) => (
-              <article
-                key={project.title}
-                className="reveal portfolio-card overflow-hidden transition hover:-translate-y-1 hover:border-accent/55"
-                data-reveal-delay={String(Math.min(index, 4))}
-              >
-                <ProjectMockup project={project} />
-                <div className="p-6">
-                  <div className="mb-4 flex items-center justify-between gap-4">
-                    <div className="grid h-9 w-9 place-items-center rounded-md border border-accent/40 text-accent">
-                      <Folder className="h-4 w-4" aria-hidden="true" />
+          <TooltipProvider delayDuration={150}>
+            <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {PROJECTS.map((project, index) => (
+                <article
+                  key={project.title}
+                  className="reveal portfolio-card overflow-hidden transition hover:-translate-y-1 hover:border-accent/55"
+                  data-reveal-delay={String(Math.min(index, 4))}
+                >
+                  <ProjectMockup project={project} />
+                  <div className="p-6">
+                    <div className="mb-4 flex items-center justify-between gap-4">
+                      <div className="grid h-9 w-9 place-items-center rounded-md border border-accent/40 text-accent">
+                        <Folder className="h-4 w-4" aria-hidden="true" />
+                      </div>
+                      <span className="font-mono text-[11px] uppercase text-muted-foreground">{project.domain}</span>
                     </div>
-                    <span className="font-mono text-[11px] uppercase text-muted-foreground">{project.domain}</span>
+                    <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
+                    <p className="mt-3 text-sm leading-7 text-muted-foreground">{project.description}</p>
+                    <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-muted-foreground">
+                      {project.stack.map((tech) => (
+                        <span key={tech}>{tech}</span>
+                      ))}
+                    </div>
+                    {project.links && project.links.length > 0 && (
+                      <div className="mt-5 flex flex-wrap items-center gap-2">
+                        {project.links.map((link, i) => (
+                          <ProjectLinkButton key={i} link={link} title={project.title} />
+                        ))}
+                      </div>
+                    )}
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">{project.title}</h3>
-                  <p className="mt-3 text-sm leading-7 text-muted-foreground">{project.description}</p>
-                  <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 font-mono text-xs text-muted-foreground">
-                    {project.stack.map((tech) => (
-                      <span key={tech}>{tech}</span>
-                    ))}
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+                </article>
+              ))}
+            </div>
+          </TooltipProvider>
         </section>
 
         <section id="contact" className="section-block pb-20 text-center">
@@ -434,10 +500,7 @@ export function RedesignedPortfolio() {
       </main>
 
       <aside className="side-rail left-rail" aria-label="Social links">
-        <a href="https://github.com/danhaikal" target="_blank" rel="noreferrer noopener" aria-label="GitHub">
-          <Github className="h-5 w-5" />
-        </a>
-        <a href="https://linkedin.com/in/danial-haikal" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/danial-haikal-801b571ab/" target="_blank" rel="noreferrer noopener" aria-label="LinkedIn">
           <Linkedin className="h-5 w-5" />
         </a>
         <a href="mailto:danhaikalwork@gmail.com" aria-label="Email">
@@ -449,12 +512,9 @@ export function RedesignedPortfolio() {
       </aside>
 
       <footer className="relative z-10 mx-auto max-w-6xl border-t border-border/70 px-5 py-8 text-center font-mono text-xs text-muted-foreground sm:px-8 lg:px-10">
-        <p>Designed and built by Danial Haikal. 2026.</p>
+        <p>Designed and built with ❤️ by Danial Haikal. 2026.</p>
         <div className="mt-3 flex justify-center gap-5">
-          <a href="https://github.com/danhaikal" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/danial-haikal" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
+          <a href="https://www.linkedin.com/in/danial-haikal-801b571ab/" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
             LinkedIn
           </a>
           <a href="/danial-resume.pdf" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
@@ -595,8 +655,7 @@ function ContactTerminal() {
     } else if (cmd === "projects") {
       PROJECTS.forEach((project) => output.push({ type: "output", text: `${project.title} - ${project.domain}` }))
     } else if (cmd === "social") {
-      output.push({ type: "output", text: "github: github.com/danhaikal" })
-      output.push({ type: "output", text: "linkedin: linkedin.com/in/danial-haikal" })
+      output.push({ type: "output", text: "linkedin: linkedin.com/in/danial-haikal-801b571ab" })
     } else if (cmd === "clear") {
       setHistory([])
       return
@@ -677,7 +736,7 @@ function Prompt() {
   )
 }
 
-function ProjectMockup({ project }: { project: (typeof PROJECTS)[number] }) {
+function ProjectMockup({ project }: { project: Project }) {
   const style = { "--project-accent": project.accent } as CSSProperties
 
   return (
@@ -693,8 +752,14 @@ function ProjectMockup({ project }: { project: (typeof PROJECTS)[number] }) {
           <div className="web-screen">
             <div className="web-hero">
               <div className="web-logo-wrap">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={project.logo} alt={`${project.title} logo`} />
+                {project.logo ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src={project.logo} alt={`${project.title} logo`} />
+                ) : (
+                  <span className="grid h-full w-full place-items-center font-mono text-sm font-semibold text-foreground">
+                    {project.label}
+                  </span>
+                )}
               </div>
               <div className="web-hero-copy">
                 <span>{project.label}</span>
@@ -722,15 +787,24 @@ function ProjectMockup({ project }: { project: (typeof PROJECTS)[number] }) {
               <span>5G</span>
             </div>
             <div className="phone-logo-wrap">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={project.logo}
-                alt={`${project.title} logo`}
-                className={cn(
-                  "absolute inset-0 h-full w-full",
-                  project.logoFit === "cover" ? "object-cover" : "object-contain p-2",
-                )}
-              />
+              {project.logo ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={project.logo}
+                  alt={`${project.title} logo`}
+                  className={cn(
+                    "absolute inset-0 h-full w-full",
+                    project.logoFit === "cover" ? "object-cover" : "object-contain p-2",
+                  )}
+                />
+              ) : (
+                <span
+                  className="absolute inset-0 grid place-items-center font-mono text-2xl font-bold"
+                  style={{ color: project.accent }}
+                >
+                  {project.label}
+                </span>
+              )}
             </div>
             <div className="phone-pills">
               <span />
@@ -740,10 +814,66 @@ function ProjectMockup({ project }: { project: (typeof PROJECTS)[number] }) {
           </div>
         </div>
       )}
-      <a href="/danial-resume.pdf" target="_blank" rel="noreferrer noopener" className="project-open" aria-label={`Open resume context for ${project.title}`}>
-        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-      </a>
     </div>
+  )
+}
+
+function AndroidIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M17.523 15.341a1.108 1.108 0 1 1 .001-2.217 1.108 1.108 0 0 1-.001 2.217m-11.046 0a1.108 1.108 0 1 1 .001-2.217 1.108 1.108 0 0 1-.001 2.217m11.443-6.02 2.21-3.827a.46.46 0 1 0-.797-.46l-2.236 3.873A13.78 13.78 0 0 0 12 7.527c-2.064 0-4.011.439-5.097.88L4.667 4.534a.46.46 0 1 0-.797.46l2.21 3.827C2.292 10.86.5 14.082.5 17.5h23c0-3.418-1.792-6.64-5.58-8.179" />
+    </svg>
+  )
+}
+
+function AppleIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" className={className}>
+      <path d="M16.365 1.43c0 1.14-.467 2.234-1.227 3.034-.84.88-2.224 1.56-3.342 1.474-.14-1.105.41-2.27 1.18-3.05.853-.86 2.297-1.534 3.39-1.458zM20.5 17.293c-.55 1.27-.81 1.84-1.515 2.96-.985 1.56-2.376 3.5-4.099 3.515-1.534.014-1.927-1.005-4.005-.992-2.078.012-2.514 1.013-4.05.999-1.722-.014-3.04-1.766-4.026-3.327C-.04 16.252-.296 11.43 1.515 8.79c1.286-1.876 3.318-2.973 5.227-2.973 1.943 0 3.165 1.07 4.77 1.07 1.557 0 2.506-1.072 4.752-1.072 1.7 0 3.5.926 4.78 2.527-4.197 2.301-3.514 8.31.456 8.95z" />
+    </svg>
+  )
+}
+
+function ProjectLinkButton({ link, title }: { link: ProjectLink; title: string }) {
+  if (link.kind === "internal") {
+    return (
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <span
+            tabIndex={0}
+            className="inline-flex items-center gap-1.5 rounded-md border border-border bg-card/40 px-2.5 py-1 font-mono text-[11px] uppercase text-muted-foreground"
+          >
+            <Lock className="h-3 w-3" aria-hidden="true" />
+            Internal
+          </span>
+        </TooltipTrigger>
+        <TooltipContent side="top">Internal system — no public link</TooltipContent>
+      </Tooltip>
+    )
+  }
+
+  const meta =
+    link.kind === "android"
+      ? { label: "Google Play", icon: <AndroidIcon className="h-4 w-4" /> }
+      : link.kind === "ios"
+        ? { label: "App Store", icon: <AppleIcon className="h-4 w-4" /> }
+        : { label: "Website", icon: <ExternalLink className="h-3.5 w-3.5" /> }
+
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <a
+          href={link.href}
+          target="_blank"
+          rel="noreferrer noopener"
+          aria-label={`${title} on ${meta.label}`}
+          className="inline-flex h-8 w-8 items-center justify-center rounded-md border border-border bg-card/40 text-muted-foreground transition hover:border-accent/55 hover:text-accent"
+        >
+          {meta.icon}
+        </a>
+      </TooltipTrigger>
+      <TooltipContent side="top">{meta.label}</TooltipContent>
+    </Tooltip>
   )
 }
 

@@ -34,7 +34,10 @@
       "Bash(rtk read *)",
       "Bash(python3)",
       "Bash(pkill -f \"next\")",
-      "Bash(rm -rf .next)"
+      "Bash(rm -rf .next)",
+      "Bash(rtk --version)",
+      "Bash(rtk gain *)",
+      "WebFetch(domain:khind.com.my)"
     ]
   }
 }
