@@ -40,7 +40,8 @@
       "WebFetch(domain:khind.com.my)",
       "Bash(rtk hook *)",
       "Bash(rtk cat *)",
-      "Bash(rtk git *)"
+      "Bash(rtk git *)",
+      "Bash(rtk head *)"
     ]
   }
 }
