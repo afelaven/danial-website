@@ -1,9 +1,10 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ExternalLink, FileText } from "lucide-react"
 
 const RESUME_PDF = "/danial-resume.pdf"
-const RESUME_VIEWER_SRC = `${RESUME_PDF}#toolbar=1&navpanes=0&view=FitH`
+const RESUME_PREVIEW = "/danial-resume-preview.png"
 
 export const metadata: Metadata = {
   title: "Resume - Danial Haikal",
@@ -43,12 +44,15 @@ export default function ResumePage() {
         </div>
       </header>
 
-      <section className="relative z-10 mx-auto flex h-[calc(100svh-4rem)] max-w-6xl flex-col px-3 py-3 sm:h-[calc(100svh-4.5rem)] sm:px-8 sm:py-5 lg:px-10">
-        <div className="min-h-0 flex-1 overflow-hidden rounded-md border border-border/80 bg-white shadow-[0_20px_70px_rgba(0,0,0,0.28)]">
-          <iframe
-            src={RESUME_VIEWER_SRC}
-            title="Danial Haikal resume PDF"
-            className="h-full w-full bg-white"
+      <section className="relative z-10 mx-auto max-w-6xl px-3 py-3 sm:px-8 sm:py-5 lg:px-10">
+        <div className="mx-auto max-w-[54rem] overflow-hidden rounded-md border border-border/80 bg-white shadow-[0_20px_70px_rgba(0,0,0,0.28)]">
+          <Image
+            src={RESUME_PREVIEW}
+            alt="Danial Haikal resume"
+            width={1272}
+            height={1800}
+            priority
+            className="h-auto w-full"
           />
         </div>
 
@@ -56,7 +60,7 @@ export default function ResumePage() {
           href={RESUME_PDF}
           target="_blank"
           rel="noreferrer noopener"
-          className="mt-3 inline-flex h-10 items-center justify-center gap-2 rounded-md border border-border bg-background/80 px-3 font-mono text-xs font-bold text-muted-foreground transition hover:border-accent hover:text-accent sm:hidden"
+          className="mx-auto mt-3 flex h-10 max-w-[54rem] items-center justify-center gap-2 rounded-md border border-border bg-background/80 px-3 font-mono text-xs font-bold text-muted-foreground transition hover:border-accent hover:text-accent"
         >
           <FileText className="h-4 w-4" aria-hidden="true" />
           Open PDF
