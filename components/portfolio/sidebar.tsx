@@ -174,7 +174,7 @@ export function Sidebar() {
         </li>
         <li>
           <a
-            href="/resume.pdf"
+            href="/resume"
             target="_blank"
             rel="noreferrer noopener"
             className="block transition-colors hover:text-foreground"

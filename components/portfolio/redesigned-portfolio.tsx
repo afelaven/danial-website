@@ -6,7 +6,6 @@ import {
   Code2,
   Cpu,
   Database,
-  Download,
   ExternalLink,
   FileText,
   Folder,
@@ -297,9 +296,9 @@ export function RedesignedPortfolio() {
                 <Folder className="h-4 w-4" aria-hidden="true" />
                 View Projects
               </a>
-              <a href="/danial-resume.pdf" target="_blank" rel="noreferrer noopener" className="portfolio-button border border-accent/50 text-accent hover:bg-accent/10">
-                <Download className="h-4 w-4" aria-hidden="true" />
-                Download Resume
+              <a href="/resume" target="_blank" rel="noreferrer noopener" className="portfolio-button border border-accent/50 text-accent hover:bg-accent/10">
+                <FileText className="h-4 w-4" aria-hidden="true" />
+                View Resume
               </a>
             </div>
 
@@ -520,7 +519,7 @@ export function RedesignedPortfolio() {
               </svg>
               WhatsApp
             </a>
-            <a href="/danial-resume.pdf" target="_blank" rel="noreferrer noopener" className="portfolio-button border border-border text-muted-foreground hover:border-accent hover:text-accent">
+            <a href="/resume" target="_blank" rel="noreferrer noopener" className="portfolio-button border border-border text-muted-foreground hover:border-accent hover:text-accent">
               <FileText className="h-4 w-4" aria-hidden="true" />
               Resume
             </a>
@@ -550,7 +549,7 @@ export function RedesignedPortfolio() {
           <a href="https://www.linkedin.com/in/danial-haikal-801b571ab/" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
             LinkedIn
           </a>
-          <a href="/danial-resume.pdf" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
+          <a href="/resume" target="_blank" rel="noreferrer noopener" className="hover:text-accent">
             Resume
           </a>
         </div>
@@ -578,25 +577,25 @@ function SiteNav({ activeSection }: { activeSection: string }) {
               <NavLink key={item.id} item={item} index={index} active={activeSection === item.id} />
             ))}
             <a
-              href="/danial-resume.pdf"
+              href="/resume"
               target="_blank"
               rel="noreferrer noopener"
               className="ml-1 inline-flex h-9 shrink-0 items-center gap-2 rounded-md border border-accent/50 px-3 font-mono text-xs font-bold text-accent transition hover:bg-accent/10"
               aria-label="Open resume"
             >
-              <Download className="h-4 w-4" aria-hidden="true" />
+              <FileText className="h-4 w-4" aria-hidden="true" />
               Resume
             </a>
           </div>
 
           <a
-            href="/danial-resume.pdf"
+            href="/resume"
             target="_blank"
             rel="noreferrer noopener"
             className="ml-auto grid h-9 w-9 shrink-0 place-items-center rounded-md border border-accent/50 text-accent sm:hidden"
             aria-label="Open resume"
           >
-            <Download className="h-4 w-4" aria-hidden="true" />
+            <FileText className="h-4 w-4" aria-hidden="true" />
           </a>
         </div>
 
@@ -684,8 +683,8 @@ function ContactTerminal() {
       output.push({ type: "output", text: "email: danhaikalwork@gmail.com" })
       output.push({ type: "output", text: "phone: +60 17-756 5622" })
     } else if (cmd === "resume") {
-      output.push({ type: "output", text: "opening /danial-resume.pdf" })
-      window.open("/danial-resume.pdf", "_blank", "noopener,noreferrer")
+      output.push({ type: "output", text: "opening /resume" })
+      window.open("/resume", "_blank", "noopener,noreferrer")
     } else if (cmd === "projects") {
       PROJECTS.forEach((project) => output.push({ type: "output", text: `${project.title} - ${project.domain}` }))
     } else if (cmd === "social") {

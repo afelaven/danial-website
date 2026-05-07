@@ -103,7 +103,7 @@ export function Projects() {
 
       <div className="mt-12">
         <a
-          href="/resume.pdf"
+          href="/resume"
           target="_blank"
           rel="noreferrer noopener"
           className="inline-flex items-center font-medium leading-tight text-foreground group"
