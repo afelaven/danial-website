@@ -15,15 +15,59 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 })
 
+const siteUrl = "https://danialhaikal.vercel.app"
+const siteTitle = "Danial Haikal - Senior Software Developer"
+const siteDescription =
+  "Senior Software Developer building production mobile and web apps across banking, fintech, healthcare, and enterprise platforms."
+
 export const metadata: Metadata = {
-  title: "Danial Haikal - Senior Software Developer",
-  description:
-    "Senior Software Developer building production mobile and web apps across banking, fintech, healthcare, and enterprise platforms.",
+  metadataBase: new URL(siteUrl),
+  title: siteTitle,
+  description: siteDescription,
   generator: "Next.js",
+  alternates: {
+    canonical: siteUrl,
+  },
   icons: {
-    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+      {
+        url: "/icon-dark-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+      {
+        url: "/icon-light-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+    ],
     shortcut: "/icon.svg",
-    apple: "/apple-icon.png",
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
+  openGraph: {
+    title: siteTitle,
+    description: siteDescription,
+    url: siteUrl,
+    siteName: "Danial Haikal",
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Danial Haikal portfolio preview",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteTitle,
+    description: siteDescription,
+    images: ["/og-image.png"],
   },
 }
 
