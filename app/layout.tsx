@@ -16,9 +16,9 @@ const jetbrainsMono = JetBrains_Mono({
 })
 
 const siteUrl = "https://danialhaikal.vercel.app"
-const siteTitle = "Danial Haikal - Senior Software Developer"
+const siteTitle = "Danial Haikal - Senior Software Developer & Mobile Team Lead"
 const siteDescription =
-  "Senior Software Developer building production mobile and web apps across banking, fintech, healthcare, and enterprise platforms."
+  "Senior Software Developer and Mobile Team Lead with 6+ years shipping production Flutter, Flutter Web, and React apps for banking, fintech, healthcare, and enterprise."
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -52,14 +52,6 @@ export const metadata: Metadata = {
     description: siteDescription,
     url: siteUrl,
     siteName: "Danial Haikal",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Danial Haikal portfolio preview",
-      },
-    ],
     locale: "en_US",
     type: "website",
   },
@@ -67,7 +59,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteTitle,
     description: siteDescription,
-    images: ["/og-image.png"],
   },
 }
 

@@ -13,9 +13,8 @@ export const metadata: Metadata = {
 
 export default function ResumePage() {
   return (
-    <main className="portfolio-shell relative isolate min-h-svh overflow-hidden bg-background text-foreground">
+    <main className="relative isolate min-h-svh overflow-hidden bg-background text-foreground">
       <div className="portfolio-grid-bg" aria-hidden="true" />
-      <div className="portfolio-vignette" aria-hidden="true" />
 
       <header className="relative z-10 border-b border-border/70 bg-background/85 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-6xl items-center gap-3 px-4 sm:h-[4.5rem] sm:px-8 lg:px-10">
