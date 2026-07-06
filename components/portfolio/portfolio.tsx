@@ -23,6 +23,7 @@ import {
   Mail,
   Phone,
   Plus,
+  Rocket,
   ShieldCheck,
   Smartphone,
   Users,
@@ -334,7 +335,11 @@ export function Portfolio() {
             </a>
           </div>
 
-          <dl className="reveal mt-14 grid max-w-3xl grid-cols-2 gap-x-6 gap-y-8 border-t border-border/70 pt-8 sm:grid-cols-4" data-reveal-delay="5">
+          </div>
+
+          <HeroPhone />
+
+          <dl className="reveal mt-14 grid grid-cols-2 gap-x-6 gap-y-8 border-t border-border/70 pt-8 sm:grid-cols-4 lg:col-span-2 lg:mt-6" data-reveal-delay="5">
             {STATS.map((stat) => (
               <div key={stat.label}>
                 <dd className="text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -344,10 +349,6 @@ export function Portfolio() {
               </div>
             ))}
           </dl>
-
-          </div>
-
-          <HeroPhone />
 
           <div className="reveal mt-16 lg:col-span-2 lg:mt-10" data-reveal-delay="5">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
@@ -644,8 +645,10 @@ export function Portfolio() {
 
 function HeroPhone() {
   return (
-    <div className="hero-visual reveal flex" data-reveal-delay="3" aria-hidden="true">
+    <div className="hero-visual reveal flex lg:self-start" data-reveal-delay="3" aria-hidden="true">
       <div className="hero-visual-glow" />
+      <div className="hero-orbit" />
+      <div className="hero-orbit hero-orbit-2" />
 
       <div className="demo-phone">
         <div className="demo-notch" />
@@ -810,6 +813,29 @@ function HeroPhone() {
             <span className="demo-notif-sub">+RM 1,200.00 · just now</span>
           </span>
         </div>
+      </div>
+
+      <div className="hero-card hero-card-build">
+        <span className="hero-card-icon">
+          <Rocket className="h-3.5 w-3.5" />
+        </span>
+        <span className="hero-card-lines">
+          <span className="hero-card-title">flutter build ipa ✓</span>
+          <span className="hero-card-sub">Release signed &amp; shipped</span>
+        </span>
+      </div>
+
+      <div className="hero-card hero-card-stores">
+        <span className="hero-card-icon">
+          <AppleIcon className="h-3.5 w-3.5" />
+        </span>
+        <span className="hero-card-icon">
+          <AndroidIcon className="h-3.5 w-3.5" />
+        </span>
+        <span className="hero-card-lines">
+          <span className="hero-card-title">6 apps live</span>
+          <span className="hero-card-sub">App Store · Play Store</span>
+        </span>
       </div>
 
       <span className="float-chip float-chip-1">Flutter</span>
