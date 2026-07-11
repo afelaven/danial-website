@@ -1241,6 +1241,144 @@
 .reveal[data-reveal-delay="4"] { transition-delay: 320ms; }
 .reveal[data-reveal-delay="5"] { transition-delay: 400ms; }
 
+/* ============ Section scroll motion ============ */
+
+/* Experience — bullets stagger in on scroll-in and on every tab switch */
+.exp-bullet {
+  opacity: 0;
+  transform: translateX(-12px);
+}
+
+.reveal.in .exp-bullet {
+  animation: exp-bullet-in 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes exp-bullet-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Projects — a soft light glints across each banner on a staggered loop */
+.project-banner {
+  position: relative;
+  overflow: hidden;
+}
+
+.project-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.1) 47%,
+    rgba(255, 255, 255, 0.18) 50%,
+    rgba(255, 255, 255, 0.1) 53%,
+    transparent 60%
+  );
+  transform: translateX(-130%);
+  animation: banner-sheen 7.5s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 1.15s);
+}
+
+@keyframes banner-sheen {
+  0%,
+  60% {
+    transform: translateX(-130%);
+  }
+  85%,
+  100% {
+    transform: translateX(130%);
+  }
+}
+
+/* Skills — icons drift, cards lift and glow, tags cascade in */
+.skill-card {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+@media (hover: hover) {
+  .skill-card:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in oklab, var(--accent), transparent 55%);
+    box-shadow:
+      0 1px 0 rgba(255, 255, 255, 0.04) inset,
+      0 22px 55px color-mix(in oklab, var(--accent), transparent 84%);
+  }
+}
+
+.skill-icon {
+  animation: skill-float 4.8s ease-in-out infinite;
+  animation-delay: calc(var(--i, 0) * 0.45s);
+}
+
+@keyframes skill-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.skill-tag {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
+}
+
+.reveal.in .skill-tag {
+  opacity: 1;
+  transform: none;
+}
+
+.reveal.in .skill-tag:nth-child(1) { transition-delay: 0.16s; }
+.reveal.in .skill-tag:nth-child(2) { transition-delay: 0.24s; }
+.reveal.in .skill-tag:nth-child(3) { transition-delay: 0.32s; }
+.reveal.in .skill-tag:nth-child(4) { transition-delay: 0.4s; }
+.reveal.in .skill-tag:nth-child(5) { transition-delay: 0.48s; }
+
+/* Contact — a breathing aurora sits behind the headline */
+.contact-aurora {
+  position: absolute;
+  left: 50%;
+  top: -1rem;
+  z-index: -1;
+  width: min(40rem, 92vw);
+  height: 22rem;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: radial-gradient(
+    closest-side,
+    color-mix(in oklab, var(--accent), transparent 80%),
+    transparent 72%
+  );
+  filter: blur(36px);
+  pointer-events: none;
+  animation: aurora-drift 9s ease-in-out infinite;
+}
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-50%) translateY(12px) scale(1.1);
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .status-dot,
   .hero-visual-glow,
@@ -1301,5 +1439,37 @@
   .reveal {
     opacity: 1;
     transform: none;
+  }
+
+  .exp-bullet {
+    opacity: 1;
+    transform: none;
+  }
+
+  .reveal.in .exp-bullet {
+    animation: none;
+  }
+
+  .project-banner::after {
+    animation: none;
+    opacity: 0;
+  }
+
+  .skill-card {
+    transition: none;
+  }
+
+  .skill-icon {
+    animation: none;
+  }
+
+  .skill-tag {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .contact-aurora {
+    animation: none;
   }
 }

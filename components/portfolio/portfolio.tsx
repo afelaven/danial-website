@@ -53,7 +53,7 @@ const TRUSTED_BY = [
   { name: "AFFIN Bank", logo: "/logo-affin.svg" },
   { name: "Hong Leong Bank", logo: "/logo-hong-leong.png" },
   { name: "SELANGKAH", logo: "/logo-selangkah.jpg" },
-  { name: "MoneyX", logo: "/logo-moneyx.png" },
+  { name: "MoneyX", logo: "/logo-moneyx.svg" },
   { name: "Net7", logo: "/logo-net7.jpg" },
   { name: "Khind", logo: "/logo-khind.svg" },
 ]
@@ -203,7 +203,7 @@ const PROJECTS: Project[] = [
       "Production fintech app where reliability matters most. Worked on API-driven money flows, third-party service integrations, and release triage — with a focus on clear app states and safe delivery.",
     stack: ["Flutter", "Dart", "JSON"],
     accent: "#e60013",
-    logo: "/logo-moneyx.png",
+    logo: "/logo-moneyx.svg",
     links: [
       { kind: "website", href: "https://www.moneyx.com.my/" },
       { kind: "android", href: "https://play.google.com/store/apps/details?id=com.hextartech.moneyx" },
@@ -362,10 +362,7 @@ export function Portfolio() {
                       <li key={client.name} className="flex shrink-0 items-center gap-3.5">
                         <span className="logo-tile">
                           {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={client.logo} alt="" loading="lazy" />
-                        </span>
-                        <span className="whitespace-nowrap text-base font-medium text-muted-foreground">
-                          {client.name}
+                          <img src={client.logo} alt={client.name} loading="lazy" />
                         </span>
                       </li>
                     ))}
@@ -467,9 +464,13 @@ export function Portfolio() {
                 </span>
                 <span>{EXPERIENCE[activeJob].location}</span>
               </p>
-              <ul className="mt-7 space-y-4">
-                {EXPERIENCE[activeJob].bullets.map((bullet) => (
-                  <li key={bullet} className="grid grid-cols-[1.1rem_1fr] gap-3 text-sm leading-7 text-muted-foreground sm:text-base">
+              <ul key={activeJob} className="mt-7 space-y-4">
+                {EXPERIENCE[activeJob].bullets.map((bullet, i) => (
+                  <li
+                    key={bullet}
+                    className="exp-bullet grid grid-cols-[1.1rem_1fr] gap-3 text-sm leading-7 text-muted-foreground sm:text-base"
+                    style={{ animationDelay: `${i * 0.09}s` }}
+                  >
                     <span className="pt-2 text-accent" aria-hidden="true">
                       <svg viewBox="0 0 8 8" className="h-2 w-2 fill-current"><circle cx="4" cy="4" r="3" /></svg>
                     </span>
@@ -491,6 +492,7 @@ export function Portfolio() {
                   key={project.title}
                   className="reveal portfolio-card group flex flex-col overflow-hidden transition duration-200 hover:-translate-y-1 hover:border-accent/40"
                   data-reveal-delay={String(Math.min(index, 4))}
+                  style={{ "--i": index } as CSSProperties}
                 >
                   <ProjectBanner project={project} />
                   <div className="flex flex-1 flex-col p-6">
@@ -536,9 +538,14 @@ export function Portfolio() {
             {SKILLS.map((skill, index) => {
               const Icon = skill.icon
               return (
-                <article key={skill.title} className="reveal portfolio-card p-6" data-reveal-delay={String(Math.min(index, 4))}>
+                <article
+                  key={skill.title}
+                  className="reveal portfolio-card skill-card p-6"
+                  data-reveal-delay={String(Math.min(index, 4))}
+                  style={{ "--i": index } as CSSProperties}
+                >
                   <div className="mb-5 flex items-center gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-lg border border-accent/25 bg-accent/[0.06] text-accent">
+                    <span className="skill-icon grid h-9 w-9 place-items-center rounded-lg border border-accent/25 bg-accent/[0.06] text-accent">
                       <Icon className="h-4 w-4" aria-hidden="true" />
                     </span>
                     <h3 className="text-sm font-semibold text-foreground">{skill.title}</h3>
@@ -548,7 +555,7 @@ export function Portfolio() {
                       <span
                         key={item}
                         className={cn(
-                          "rounded-md border px-2.5 py-1 font-mono text-[11px]",
+                          "skill-tag rounded-md border px-2.5 py-1 font-mono text-[11px]",
                           CORE_SKILLS.has(item)
                             ? "border-accent/30 bg-accent/[0.08] text-accent"
                             : "border-border/80 bg-background/40 text-muted-foreground",
@@ -565,7 +572,8 @@ export function Portfolio() {
         </section>
 
         {/* ============ Contact ============ */}
-        <section id="contact" className="section-block pb-24 text-center">
+        <section id="contact" className="section-block relative isolate overflow-hidden pb-24 text-center">
+          <div className="contact-aurora" aria-hidden="true" />
           <p className="reveal font-mono text-xs font-medium uppercase tracking-[0.2em] text-accent">Contact</p>
           <h2 className="reveal mt-4 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl" data-reveal-delay="1">
             Let&apos;s talk.
